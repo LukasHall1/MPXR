@@ -6,6 +6,7 @@ public class XRPainter : MonoBehaviour
 {
     public InputActionProperty triggerAction;
     public GameObject strokePrefab;
+    public GameObject TipColor;
     public Transform tip;
     public Color currentColor;
 
@@ -20,16 +21,26 @@ public class XRPainter : MonoBehaviour
 
     private Color[] colors = new Color[]
     {
+        Color.white,
         Color.red,
         Color.blue,
         Color.green,
         Color.yellow,
         Color.magenta,
-        Color.white,
         Color.black
     };
 
     private int colorIndex = 0;
+
+    void Start() {
+        currentColor = colors[colorIndex];
+
+        Renderer tipRenderer = TipColor.GetComponent<Renderer>();
+        if (tipRenderer != null)
+        {
+            tipRenderer.material.color = currentColor;
+        }
+    }
 
     void Update()
     {
@@ -39,6 +50,16 @@ public class XRPainter : MonoBehaviour
         {
             colorIndex = (colorIndex + 1) % colors.Length;
             currentColor = colors[colorIndex];
+            
+            // Update TipColor object
+            if (TipColor != null)
+            {
+                Renderer tipRenderer = TipColor.GetComponent<Renderer>();
+                if (tipRenderer != null)
+                {
+                    tipRenderer.material.color = currentColor;
+                }
+            }
         }
 
         if (trigger > 0.1f)
