@@ -1,0 +1,10 @@
+Name: Mini painting VR (unfortunately no mini painting)
+Gameplay loop: pick up the paint brush and paint what you want. Also throw the miniature across the room if you want. That's your two options :)
+
+Controls: 
+middle finger trigger - pick things up
+pointer finger trigger - paint with the paint brush
+B button - change color
+
+
+Lidar scanned object - miniature on the table
